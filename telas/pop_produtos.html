@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Lumina Perfumaria - Detalhes</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background: linear-gradient(180deg, #f5eff5 0%, #e0cfe0 100%);
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            main {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            .pop-container {
+                background-color: #ffffff;
+                width: 100%;
+                max-width: 600px;
+                border-radius: 15px;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+                padding: 30px;
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            h1 {
+                color: #4a0e4e;
+                font-size: 28px;
+                font-weight: bold;
+                margin-top: 0;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            .slider-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                gap: 15px;
+                margin-bottom: 20px;
+            }
+
+            .div-img-produto {
+                width: 350px;
+                height: 350px;
+                border: 1px solid #e8dee8;
+                border-radius: 12px;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #fbfafb;
+            }
+
+            .div-img-produto img {
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+            }
+
+            .seta-btn {
+                background-color: #800080;
+                color: #ffffff;
+                border: none;
+                width: 40px;
+                height: 40px;
+                border-radius: 5px;
+                font-size: 20px;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                user-select: none;
+                transition: background 0.2s;
+            }
+
+            .seta-btn:hover {
+                background-color: #5c005c;
+            }
+
+            .descricao-container {
+                width: 100%;
+                max-width: 480px;
+                text-align: left;
+                padding-top: 10px;
+            }
+
+            .descricao-container p {
+                font-size: 16px;
+                color: #333333;
+                line-height: 1.6;
+                margin: 0;
+                white-space: pre-line;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <div class="pop-container">
+                <h1 id="nome-produto"></h1>
+                
+                <div class="slider-wrapper">
+                    <button id="prevBtn" class="seta-btn">&#10094;</button>
+                    <div class="div-img-produto">
+                        <img id="slider-img" src="" alt="Imagem do produto"/>
+                    </div>
+                    <button id="nextBtn" class="seta-btn">&#10095;</button>
+                </div>
+
+                <div class="descricao-container">
+                    <p id="desc-produto"></p>
+                </div>
+
+                <script>
+                    function getParametro(infoCapturar){
+                        var urlParametro = new URLSearchParams(window.location.search);
+                        return urlParametro.get(infoCapturar);
+                    }
+                    
+                    document.getElementById("nome-produto").textContent = getParametro("nomeProduto");
+                    document.getElementById("desc-produto").textContent = getParametro("descProduto");
+
+                    const imagens = getParametro("imgProduto") ? getParametro("imgProduto").split(',') : []; 
+                    let index = 0;
+                    
+                    const sliderImg = document.getElementById("slider-img");
+                    const prevBtn = document.getElementById("prevBtn");
+                    const nextBtn = document.getElementById("nextBtn");
+                    
+                    function MostrarImagens(){
+                        if(imagens.length > 0){
+                            sliderImg.src = imagens[index].trim();
+                        }
+                    }
+
+                    prevBtn.onclick = function(){
+                        if(imagens.length > 0) {
+                            index = (index - 1 + imagens.length) % imagens.length;
+                            MostrarImagens();
+                        }
+                    }
+
+                    nextBtn.onclick = function(){
+                        if(imagens.length > 0) {
+                            index = (index + 1) % imagens.length;
+                            MostrarImagens();
+                        }
+                    }
+
+                    MostrarImagens();
+                </script>
+            </div>
+        </main>
+    </body>
+</html>

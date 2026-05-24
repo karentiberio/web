@@ -1,0 +1,233 @@
+/* ==========================================================================
+   1. IMPORTAÇÃO DAS FONTES E VARIÁVEIS (Padronizado com a Home)
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@400;500;600&display=swap');
+
+:root {
+    --lumina-rosa-principal: #B01B76;
+    --lumina-rosa-claro: #E89BC0;
+    --lumina-rosa-brilho: #FF2DAF;
+    --lumina-roxo-degrade: #e6bcd0;
+}
+
+/* ==========================================================================
+   2. ESTILIZAÇÃO PADRÃO
+   ========================================================================== */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif; /* Fonte padrão limpa da Lumina */
+    color: #333333;
+}
+
+/* Gradiente do fundo da página */
+main {
+    background: linear-gradient(#FFFFFF, var(--lumina-roxo-degrade));
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+/* Título da Página de Produtos */
+.produtos-titulo {
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--lumina-rosa-principal); /* Rosa marcante oficial */
+    font-family: 'Cinzel', serif; /* Fonte clássica de luxo */
+    text-align: center;
+    list-style: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+/* ==========================================================================
+   3. CONTAINER E CARDS DE PRODUTOS
+   ========================================================================== */
+
+/* Container dos cards (Ajustado para centralizar corretamente na tela) */
+.container {
+    width: 85%;
+    margin: 0 auto; /* Centraliza o bloco na página */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 40px;
+    gap: 30px;
+}
+
+/* Estilização do card */
+.card {
+    background-color: white;
+    width: 280px;
+    border-radius: 12px;
+    text-align: center;
+    padding: 20px;
+    box
+}
+
+/* ==========================================================================
+   ADICIONADO: BARRA DE FILTROS (ABAS DE CATEGORIAS)
+   ========================================================================== */
+
+/* Container que alinha os botões de filtro no centro da página */
+.filtros-abas {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 0 auto 40px auto;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+/* Estilo padrão de cada botão de filtro */
+.aba-item {
+    background-color: transparent;
+    border: 1px solid var(--lumina-rosa-claro, #E89BC0);
+    color: #4a4a4a;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Efeito ao passar o mouse por cima dos botões */
+.aba-item:hover {
+    color: var(--lumina-rosa-principal, #B01B76);
+    border-color: var(--lumina-rosa-principal, #B01B76);
+    background-color: rgba(232, 155, 192, 0.1);
+}
+
+/* Estilo do botão que estiver selecionado (Ativo) */
+.aba-item.ativa {
+    background-color: var(--lumina-rosa-principal, #B01B76);
+    border-color: var(--lumina-rosa-principal, #B01B76);
+    color: white;
+    box-shadow: 0 4px 10px rgba(176, 27, 118, 0.2);
+}
+
+/* Classe mágica para ocultar os cards que não são da categoria clicada */
+.card.escondido {
+    display: none !important; /* O !important garante que o display flex do container não quebre a regra */
+}
+
+.card img.foto-horizontal {
+    object-fit: contain !important;
+}
+/* ==========================================================================
+   ESTILIZAÇÃO EXCLUSIVA DA JANELA POP-UP (NÃO AFETA A VITRINE)
+   ========================================================================== */
+
+/* Fundo da página da pop-up */
+.pop-body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(180deg, #f5eff5 0%, #e0cfe0 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container do conteúdo da pop-up */
+.pop-main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Card branco centralizado */
+.pop-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Título do produto dentro da pop-up */
+.pop-title {
+    color: #4a0e4e;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Alinhamento das setas com a imagem */
+.pop-slider-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Caixa da foto do produto */
+.pop-div-img {
+    width: 350px;
+    height: 350px;
+    border: 1px solid #e8dee8;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fbfafb;
+}
+
+.pop-div-img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Botões Roxos das Setas (iguais ao modelo do Pano de Prato) */
+.pop-seta-btn {
+    background-color: #800080;
+    color: #ffffff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.2s;
+    user-select: none;
+}
+
+.pop-seta-btn:hover {
+    background-color: #B01B76;
+}
+
+/* Container do texto descritivo */
+.pop-descricao-container {
+    width: 100%;
+    max-width: 480px;
+    text-align: left;
+    padding-top: 10px;
+}
+
+.pop-descricao-container p {
+    font-size: 16px;
+    color: #333333;
+    line-height: 1.6;
+    margin: 0;
+    white-space: pre-line;
+}

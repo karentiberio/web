@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link href="../style.css" rel="stylesheet"/>
+    <link href="../img/icon.png" rel="icon" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <title>Lumina - Contato</title>
+    <style>
+        /* Estilização Geral da Página */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ebd6e6;
+        }
+
+        main {
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+        }
+
+        /* Container do Formulário (Borda Roxa Externa) */
+        .contato-box {
+            background-color: #f5c9de; /* Fundo lilás claro */
+            border: 2px solid #FF2DAF;  /* Borda roxa */
+            width: 100%;
+            max-width: 550px;
+            padding: 30px;
+            box-sizing: border-box;
+            border-radius: 4px;
+        }
+
+        /* Grupos de campos */
+        .campo-grupo {
+            margin-bottom: 20px;
+        }
+
+        .campo-grupo label {
+            display: block;
+            font-size: 16px;
+            font-weight: 600;
+            color: #111111;
+            margin-bottom: 8px;
+        }
+
+        .campo-grupo input[type="text"],
+        .campo-grupo input[type="email"],
+        .campo-grupo textarea,
+        .campo-grupo select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #E89BC0;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #333333;
+            box-sizing: border-box;
+            background-color: #ffffff;
+        }
+
+        .campo-grupo textarea {
+            height: 140px;
+            resize: vertical;
+        }
+
+        /* Estilização de Rádios e Checkbox inline */
+        .opcao-grupo {
+            margin-bottom: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #111111;
+        }
+
+        .opcao-itens {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: normal;
+            font-size: 15px;
+            margin-left: 10px;
+        }
+
+        .opcao-itens label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        /* Alinhamento do Select */
+        .select-inline {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #111111;
+        }
+
+        .select-inline select {
+            width: auto;
+            min-width: 130px;
+            padding: 5px 10px;
+            border: 1px solid #E89BC0#;
+            border-radius: 4px;
+        }
+
+        /* Checkbox do rodapé */
+        .novidades-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            color: #111111;
+            margin-bottom: 20px;
+        }
+
+        .novidades-checkbox input {
+            cursor: pointer;
+        }
+
+        /* Botão de Enviar */
+        .btn-enviar {
+            background-color: #B01B76;
+            color: #ffffff;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+        }
+
+        .btn-enviar:hover {
+            background-color: #FF2DAF;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="divHeader">
+            <img src="../img/logo.branco.png" class="logo" alt="Logo Lumina"/>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <div class="contato-box">
+            <form action="#" method="POST">
+                
+                <div class="campo-grupo">
+                    <label for="nome">* Nome e sobrenome</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="seuemail@dominio.com">
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX">
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="mensagem">* Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" required></textarea>
+                </div>
+
+                <div class="opcao-grupo">
+                    Como prefere o nosso contato?
+                    <div class="opcao-itens">
+                        <label><input type="radio" name="preferencia_contato" value="email"> E-mail</label>
+                        <label><input type="radio" name="preferencia_contato" value="telefone"> Telefone</label>
+                        <label><input type="radio" name="preferencia_contato" value="whatsapp"> Whatsapp</label>
+                    </div>
+                </div>
+
+                <div class="select-inline">
+                    <label for="motivo">Qual o motivo do seu contato?</label>
+                    <select id="motivo" name="motivo">
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="duvidas">Dúvidas</option>
+                        <option value="sugestoes">Sugestões</option>
+                        <option value="reclamacoes">Reclamações</option>
+                        <option value="encomendas">Encomendas</option>
+                    </select>
+                </div>
+
+                <div class="novidades-checkbox">
+                    <input type="checkbox" id="novidades" name="receber_novidades">
+                    <label for="novidades">Gostaria de receber nossas novidades por e-mail?</label>
+                </div>
+
+                <button type="submit" class="btn-enviar">O que voce procura?</button>
+
+            </form>
+        </div>
+    </main>
+
+    <footer>
+    <p>
+        Encomendas on-line: 
+        <a href="https://wa.me/5511992368297" target="_blank"><i class="fa fa-whatsapp"></i> (11) 94422-0250</a> | 
+        <a href="https://instagram.com/karentiberio" target="_blank"><i class="fa fa-instagram"></i> @lumina.perfumaria</a>
+    </p>
+</footer>
+
+</body>
+</html>

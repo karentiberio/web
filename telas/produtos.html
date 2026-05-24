@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <link href="../style.css" rel="stylesheet"/>
+        <link href="../styles/style_produtos.css" rel="stylesheet"/>
+        <link href="../img/icon.png" rel="icon" type="image/x-icon">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <title>Lumina - Nossos Produtos</title>
+        <script>
+            alert("Conheça nossos produtos!");
+
+            function abrirDetalhes(nome, imagensArray, descricao){
+                // Como as imagens estão na pasta "../img/", separamos ou tratamos a string para criar caminhos limpos
+                var caminhosCompletos = Array.isArray(imagensArray) 
+                    ? imagensArray.map(img => `../img/${img.trim()}`) 
+                    : [`../img/${imagensArray.trim()}`];
+                
+                var imgStr = caminhosCompletos.join(',');
+                
+                // Abre a pop_produtos.html que está na mesma pasta 'telas'
+                var url = `./pop_produtos.html?nomeProduto=${encodeURIComponent(nome)}&imgProduto=${encodeURIComponent(imgStr)}&descProduto=${encodeURIComponent(descricao)}`;
+                window.open(url, "_blank", "width=800,height=670");
+            }
+
+            function filtrarProdutos(categoria, e) {
+                const botoes = document.querySelectorAll('.aba-item');
+                botoes.forEach(botao => botao.classList.remove('ativa'));
+                
+                if(e && e.currentTarget) {
+                    e.currentTarget.classList.add('ativa');
+                }
+
+                const cards = document.querySelectorAll('.card');
+                cards.forEach(card => {
+                    if (categoria === 'todos') {
+                        card.classList.remove('escondido');
+                    } else {
+                        if (card.classList.contains('categoria-' + categoria)) {
+                            card.classList.remove('escondido');
+                        } else {
+                            card.classList.add('escondido');
+                        }
+                    }
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <div class="divHeader">
+                <img src="../img/logo.branco.png" class="logo" alt="Logo Lumina"/>
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="produtos.html">Produtos</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <main>
+            <ul class="produtos-titulo">
+                <li>Produtos</li>
+            </ul>
+
+            <div class="filtros-abas">
+                <button class="aba-item ativa" onclick="filtrarProdutos('todos', event)">Todos</button>
+                <button class="aba-item" onclick="filtrarProdutos('cabelo', event)">Cabelos</button>
+                <button class="aba-item" onclick="filtrarProdutos('maquiagem', event)">Maquiagem</button>
+                <button class="aba-item" onclick="filtrarProdutos('unhas', event)">Unhas</button>
+                <button class="aba-item" onclick="filtrarProdutos('skincare', event)">Skin Care</button>
+            </div>
+
+            <div class="container">
+                
+                <div class="card categoria-cabelo" onclick="abrirDetalhes('Óleo Capilar Kérastase', ['oleo.jfif', 'mascara.jfif', 'download.jfif'], 'Óleo Capilar Kérastase Elixir Ultime:\n\nO toque final perfeito para os seus fios. Proporciona nutrição profunda, proteção térmica e controle de frizz absoluto.')">
+                    <img src="../img/oleo.jfif" alt="Óleo Kérastase" />
+                    <h2>Óleo Capilar Kérastase</h2>
+                    <p>Finalizador e reparador nutritivo</p>
+                    <p class="preco">R$ 370,00</p>
+                </div>
+                
+                <div class="card categoria-cabelo" onclick="abrirDetalhes('Máscara de Nutrição Kérastase', ['mascara.jfif', 'oleo.jfif'], 'Máscara de Nutrição Kérastase:\n\nTratamento condicionador intensivo para cabelos ressecados. Penetra na fibra capilar para restaurar a elasticidade e o brilho natural.')">
+                    <img src="../img/mascara.jfif" alt="Máscara Kérastase">
+                    <h2>Máscara de Nutrição Kérastase</h2>
+                    <p>Tratamento profundo para fios luminosos</p>
+                    <p class="preco">R$ 270,00</p>
+                </div>
+
+                <div class="card categoria-cabelo" onclick="abrirDetalhes('Kit Shampoo e Condicionador Kérastase', ['download.jfif', 'oleo.jfif'], 'Kit Shampoo e Condicionador Kérastase:\n\nA união perfeita para o cuidado diário de salão em casa. Limpeza suave e condicionamento altamente nutritivo.')">
+                    <img src="../img/download.jfif" alt="Kit Kérastase">
+                    <h2>Kit Shampoo e Condicionador Kératase</h2>
+                    <p>Tratamento profundo para fios luminosos</p>
+                    <p class="preco">R$ 460,00</p>
+                </div>
+
+                <div class="card categoria-skincare" onclick="abrirDetalhes('Kit Skin Care Principia', ['principia.webp', 'creamy.webp', 'garnier.webp'], 'Kit Skin Care Principia:\n\nUma rotina poderosa de alta performance com ácidos ativos que uniformizam o tom da pele, combatem imperfeições e devolvem o viço saudável.')">
+                    <img src="../img/principia.webp" alt="Skin Care">
+                    <h2>Kit Skin Care Principia</h2>
+                    <p>Hidratação profunda e luminosidade</p>
+                    <p class="preco">R$ 115,00</p>
+                </div>
+
+                <div class="card categoria-skincare" onclick="abrirDetalhes('Kit Skin Care Garnier', ['garnier.webp', 'principia.webp'], 'Kit Skin Care Garnier Uniform e Matte:\n\nEnriquecido com Vitamina C, limpa, hidrata e reduz marcas na pele, garantindo um excelente efeito matte antioleosidade.')">
+                    <img src="../img/garnier.webp" alt="Skin Care">
+                    <h2>Kit Skin Care Garnier</h2>
+                    <p>Hidratação profunda e luminosidade</p>
+                    <p class="preco">R$ 150,00</p>
+                </div>
+
+                <div class="card categoria-unhas" onclick="abrirDetalhes('Esmalte Risqué', ['esmalte risque.jpg', 'colorama.webp', 'impala.jfif'], 'Coleção de Esmaltes Risqué:\n\nCores intensas, alta durabilidade e secagem rápida. Perfeito para manter as unhas elegantes em qualquer ocasião.')">
+                    <img src="../img/esmalte risque.jpg" alt="Unhas">
+                    <h2>Esmalte Risqué</h2>
+                    <p>Cores intensas de alta durabilidade</p>
+                    <p class="preco">R$ 5,00</p>
+                </div>
+
+                <div class="card categoria-unhas" onclick="abrirDetalhes('Esmalte Colorama', ['colorama.webp', 'esmalte risque.jpg'], 'Esmalte Colorama Longa Duração:\n\nFórmula com brilho intenso e tecnologia avançada que garante maior resistência contra lascas e descamações.')">
+                    <img src="../img/colorama.webp" alt="Unhas">
+                    <h2>Esmalte Colorama</h2>
+                    <p>Cores intensas de alta durabilidade</p>
+                    <p class="preco">R$ 4,00</p>
+                </div>
+                
+                <div class="card categoria-unhas" onclick="abrirDetalhes('Esmalte Impala', ['impala.jfif', 'esmalte risque.jpg'], 'Esmalte Impala Cuidado e Cor:\n\nSecagem ultra rápida, excelente cobertura e pincel flat anatômico que facilita uma aplicação uniforme e profissional.')">
+                    <img src="../img/impala.jfif" alt="Esmalte Impala">
+                    <h2>Esmalte Impala</h2>
+                    <p>Secagem rápida e brilho ultra duradouro</p>
+                    <p class="preco">R$ 5,00</p>
+                </div>
+
+                <div class="card categoria-maquiagem" onclick="abrirDetalhes('Base Dior', ['dior.webp', 'dior gloss.webp', 'iluminador.jfif'], 'Base Dior Forever Skin Glow:\n\nBase fluida de alta perfeição que oferece 24 horas de uso com acabamento luminoso, hidratando e refinando a textura da pele.')">
+                    <img src="../img/dior.webp" alt="Base Dior">
+                    <h2>Base Dior</h2>
+                    <p>Acabamento aveludado </p>
+                    <p class="preco">R$ 490,90</p>
+                </div>
+
+                <div class="card categoria-maquiagem" onclick="abrirDetalhes('Gloss Labial Dior', ['dior gloss.webp', 'dior.webp', 'iluminador.jfif'], 'Gloss Labial Dior Addict Lip Maximizer:\n\nO autêntico cuidado labial que proporciona volume instantâneo, brilho espelhado extremo e hidratação máxima por até 24 horas.')">
+                    <img src="../img/dior gloss.webp" alt="Gloss Dior">
+                    <h2>Gloss Labial Dior </h2>
+                    <p>Tons intensos e cintilantes</p>
+                    <p class="preco">R$ 280,00</p>
+                </div>
+
+                <div class="card categoria-skincare" onclick="abrirDetalhes('Kit Skin Care Creamy', ['creamy.webp', 'principia.webp'], 'Kit Skin Care Creamy:\n\nFórmulas inteligentes e minimalistas focadas na reconstrução da barreira cutânea, acalmam e nutrem as peles sensíveis.')">
+                    <img src="../img/creamy.webp" alt="Skin Care">
+                    <h2>Kit Skin Care Creamy</h2>
+                    <p>Nutrição facial</p>
+                    <p class="preco">R$ 330,00</p>
+                </div>
+
+                <div class="card categoria-maquiagem" onclick="abrirDetalhes('Paleta de Iluminadores Dior', ['iluminador.jfif', 'dior.webp', 'dior gloss.webp'], 'Paleta de Iluminadores Dior Backstage:\n\nO segredo dos maquiadores profissionais para criar uma iluminação facial customizável, desde um viço natural até o brilho mais intenso.')">
+                    <img src="../img/iluminador.jfif" alt="Iluminador Dior">
+                    <h2>Paleta de Iluminadores Dior </h2>
+                    <p>Tons intensos e cintilantes</p>
+                    <p class="preco">R$ 420,00</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+    <p>
+        Encomendas on-line: 
+        <a href="https://wa.me/5511992368297" target="_blank"><i class="fa fa-whatsapp"></i> (11) 94422-0250</a> | 
+        <a href="https://instagram.com/karentiberio" target="_blank"><i class="fa fa-instagram"></i> @lumina.perfumaria</a>
+    </p>
+</footer>
+    </body>
+</html>

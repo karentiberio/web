@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@400;500;600&display=swap');
+
+:root {
+    --lumina-rosa-principal: #B01B76;
+    --lumina-rosa-claro: #E89BC0;
+    --lumina-rosa-brilho: #FF2DAF;
+}
+
+/* ==========================================================================
+   2. ESTILIZAÇÃO DA PÁGINA
+   ========================================================================== */
+
+/*Estilização padrão da página*/
+body{
+    margin: 0;
+    font-family: 'Montserrat', sans-serif; /* Fonte moderna e limpa para os textos gerais */
+}
+
+/*Estilização do HEADER da página*/
+header{
+    background-color: var(--lumina-rosa-principal); /* Aplicado o rosa forte oficial da Lumina */
+    padding: 20px 0 40px 0;
+}
+.logo{
+    width: 10%;
+    padding-left: 5%;
+}
+nav{
+    color: white;
+    position: absolute;
+    top: 15%;
+    right: 2%;
+    font-size: 28px;  
+}
+nav li{
+   display: inline;
+   margin-right: 40px; 
+}
+nav li a{
+    color: white;
+    text-decoration: none;
+}
+.divHeader{
+    position: relative;
+}
+
+/*Estilização do Banner*/
+.banner{
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/*Estilização dos títulos*/
+.titulos{
+    text-align: center;
+    font-family: 'Cinzel', serif; /* Fonte clássica de luxo para os destaques */
+    letter-spacing: 2px;
+}
+
+/*Estilização da sessão SOBRE NÓS*/
+.sobre_nos{
+    width: 60%;
+    margin-left: 20%;
+    text-align: justify;
+    font-size: 20px; 
+}
+.img_sobre_nos{
+    width: 15%;
+    float: left;
+    margin-right: 20px;
+}
+.titulo_sobre_nos{
+    clear: left;
+}
+
+/*Estilização da sessão NOSSO ESTABELECIMENTO*/
+.mapa{
+    text-align: center;
+    background: linear-gradient(#FFFFFF, #E89BC0);
+}
+
+/*Estilização da sessão NOSSOS PRODUTOS*/
+.nossosprodutos{
+    padding: 2%;
+    background: linear-gradient(#E89BC0, #FF2DAF);
+}
+.div_nossosprodutos{
+    width: 70%;
+    margin-left: 30%;
+}
+.lista_nossosprodutos{
+    width: 30%;
+    display: inline-block;
+    vertical-align: top; 
+    list-style: none;
+}
+.lista_nossosprodutos li{
+    line-height: 2;
+}
+.img_nossosprodutos{
+    width: 15%;
+    border-radius: 8px;
+    box-shadow: 10px 10px 5px 0px #000000;
+    opacity: 1;
+    transition: 400ms;
+}
+.img_nossosprodutos:hover{
+    opacity: 0.5;
+    cursor: pointer;
+}
+/*VIDEO*/
+.video{
+    text-align: center;
+    background: linear-gradient( #FF2DAF, #E89BC0);
+    padding-bottom: 30px;
+}
+
+/*FOOTER MANTENDO SUA ESTRUTURA ORIGINAL*/
+footer {
+    padding: 40px 20px;
+    background-image: url('img/banner.png');/* Caminho padrão para a Home */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+footer p {
+    color: #FF2DAF !important;
+    font-size: 20px;
+    margin: 0;
+    text-align: center;
+}
+
+footer a {
+    color: #FF2DAF !important;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
